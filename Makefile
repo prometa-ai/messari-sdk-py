@@ -1,14 +1,20 @@
-.PHONY: help install install-dev test lint format clean build publish playground
+.PHONY: help install install-dev test lint format clean build publish playground pre-commit
 
 help:  ## Show this help message
 	@echo "Available commands:"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 install:  ## Install package dependencies
 	pip install -e .
 
-install-dev:  ## Install package with development dependencies
+install-dev:  ## Install dev dependencies and set up pre-commit hooks
 	pip install -e ".[dev]"
+	@if command -v pre-commit >/dev/null 2>&1; then \
+		pre-commit install; \
+		echo "pre-commit hooks installed."; \
+	else \
+		echo "pre-commit not found. Activate your virtualenv or install it with: pip install pre-commit"; \
+	fi
 
 test:  ## Run tests (placeholder for future implementation)
 	@echo "Tests not yet implemented. Add pytest and tests in future versions."
@@ -40,3 +46,6 @@ publish:  ## Publish to PyPI (requires twine)
 
 playground:  ## Run the interactive playground CLI
 	python -m messari_sdk.playground
+
+pre-commit:  ## Run pre-commit on all files
+	pre-commit run --all-files

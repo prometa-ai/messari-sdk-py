@@ -164,3 +164,6 @@ logs/
 *.temp
 .tmp/
 .temp/
+
+# Ruff caches
+.ruff_cache/

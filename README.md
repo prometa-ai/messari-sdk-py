@@ -54,6 +54,7 @@ This includes additional tools like:
 - `ruff` - For linting and formatting
 - `build` - For building distribution packages
 - `twine` - For publishing to PyPI
+- `pre-commit` - For running pre-commit checks
 
 ### Option 3: Install from PyPI (Coming Soon)
 
@@ -253,6 +254,7 @@ make format        # Format code
 make clean         # Clean build artifacts
 make build         # Build distribution packages
 make playground    # Run interactive playground
+make pre-commit    # Run pre-commit checks
 ```
 
 ---
@@ -327,8 +329,8 @@ This is an **unofficial** SDK and is not affiliated with or endorsed by Messari.
 
 ## 📧 Contact
 
-**Prometa AI**  
-Email: info@prometa.ai  
+**Prometa AI**
+Email: info@prometa.ai
 GitHub: [@prometa-ai](https://github.com/prometa-ai)
 
 ---

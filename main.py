@@ -1,5 +1,6 @@
 from messari_sdk import MessariClient
 
+
 def main():
     # Export API key from environment variable (set it from terminal command; or read it from .env file.
     # If latter, use dotenv package and pass it to MessariClient constructor)
@@ -19,6 +20,7 @@ def main():
         },
     )
     print(client.pretty(data))
+
 
 if __name__ == "__main__":
     main()
