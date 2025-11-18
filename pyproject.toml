@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "messari-sdk-py"
+version = "0.1.0"
+description = "Lightweight, unofficial Python SDK for the Messari API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Ali Eren Çamur", email = "alieren@prometa.ai" }
+]
+keywords = ["messari", "crypto", "cryptocurrency", "api", "sdk", "blockchain"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+  "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4.0",
+  "ruff>=0.1.0",
+  "build>=1.0.0",
+  "twine>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/prometa-ai/messari-sdk-py"
+Repository = "https://github.com/prometa-ai/messari-sdk-py"
+Issues = "https://github.com/prometa-ai/messari-sdk-py/issues"
+Documentation = "https://github.com/prometa-ai/messari-sdk-py#readme"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+messari-playground = "messari_sdk.playground:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
